@@ -1,4 +1,4 @@
-package org.example;
+package org.employee_csv_proj;
 
 /**
  * Hello world!
