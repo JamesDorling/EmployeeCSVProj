@@ -1,8 +1,9 @@
 package org.employee_csv_proj.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-public class Employee {
+public class EmployeeDTO {
     //Emp ID,Name Prefix,First Name,Middle Initial,Last Name,Gender,E Mail,Date of Birth,Date of Joining,Salary
     private int ID;
     private String title;
@@ -15,7 +16,7 @@ public class Employee {
     private LocalDate dateJoined;
     private int Salary;
 
-    public Employee(String[] employeeData) {
+    public EmployeeDTO(String[] employeeData) {
         this.setID(Integer.parseInt(employeeData[0]));
         this.setTitle(employeeData[1]);
         this.setFirstName(employeeData[2]);
@@ -23,8 +24,8 @@ public class Employee {
         this.setLastName(employeeData[4]);
         this.setGender(employeeData[5].charAt(0));
         this.setEmail(employeeData[6]);
-        this.setDob(LocalDate.parse(employeeData[7]));
-        this.setDateJoined(LocalDate.parse(employeeData[8]));
+        this.setDob(employeeData[7]);
+        this.setDateJoined(employeeData[8]);
         this.setSalary(Integer.parseInt(employeeData[9]));
     }
 
@@ -88,16 +89,16 @@ public class Employee {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
+    public void setDob(String dob) {
+        this.dob = LocalDate.parse(dob, DateTimeFormatter.ofPattern("M[M]/d[d]/yyyy"));
     }
 
     public LocalDate getDateJoined() {
         return dateJoined;
     }
 
-    public void setDateJoined(LocalDate dateJoined) {
-        this.dateJoined = dateJoined;
+    public void setDateJoined(String dateJoined) {
+        this.dateJoined = LocalDate.parse(dateJoined, DateTimeFormatter.ofPattern("M[M]/d[d]/yyyy"));
     }
 
     public int getSalary() {
