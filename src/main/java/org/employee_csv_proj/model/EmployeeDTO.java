@@ -5,19 +5,19 @@ import java.time.format.DateTimeFormatter;
 
 public class EmployeeDTO {
     //Emp ID,Name Prefix,First Name,Middle Initial,Last Name,Gender,E Mail,Date of Birth,Date of Joining,Salary
-    private int ID;
+    private int empID;
     private String title;
     private String firstName;
     private char middleInitial;
     private String lastName;
     private char gender;
     private String email;
-    private LocalDate dob; //Change to localdate?
+    private LocalDate dob;
     private LocalDate dateJoined;
-    private int Salary;
+    private int salary;
 
     public EmployeeDTO(String[] employeeData) {
-        this.setID(Integer.parseInt(employeeData[0]));
+        this.setEmpID(Integer.parseInt(employeeData[0]));
         this.setTitle(employeeData[1]);
         this.setFirstName(employeeData[2]);
         this.setMiddleInitial(employeeData[3].charAt(0));
@@ -29,12 +29,12 @@ public class EmployeeDTO {
         this.setSalary(Integer.parseInt(employeeData[9]));
     }
 
-    public int getID() {
-        return ID;
+    public int getEmpID() {
+        return empID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setEmpID(int ID) {
+        this.empID = ID;
     }
 
     public String getTitle() {
@@ -102,10 +102,10 @@ public class EmployeeDTO {
     }
 
     public int getSalary() {
-        return Salary;
+        return salary;
     }
 
     public void setSalary(int salary) {
-        Salary = salary;
+        this.salary = salary;
     }
 }
