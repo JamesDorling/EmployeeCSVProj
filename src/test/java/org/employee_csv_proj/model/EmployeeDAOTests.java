@@ -22,8 +22,6 @@ public class EmployeeDAOTests {
     @BeforeEach
     void setup() {
         mockEmployee1 = Mockito.mock(EmployeeDTO.class);
-        mockEmployee2 = Mockito.mock(EmployeeDTO.class);
-        mockEmployee3 = Mockito.mock(EmployeeDTO.class);
         Mockito.when(mockEmployee1.getID()).thenReturn(1);
     }
 
