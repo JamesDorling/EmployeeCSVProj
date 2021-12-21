@@ -12,8 +12,9 @@ public class EmployeeDAO {
 
     private static final TreeMap<Integer, EmployeeDTO> EMPLOYEE_MAP = new TreeMap<>();
 
-    public static void addEmployee(EmployeeDTO employeeData) {
+    public static EmployeeDTO addEmployee(EmployeeDTO employeeData) {
         EMPLOYEE_MAP.put(employeeData.getID(), employeeData);
+        return employeeData;
     }
 
     public static EmployeeDTO getEmployee(int ID) throws EmployeeNotFoundException {
@@ -29,7 +30,7 @@ public class EmployeeDAO {
         return EMPLOYEE_MAP.containsKey(ID);
     }
 
-    public static void removeEmployee(int ID) {
-        EMPLOYEE_MAP.remove(ID);
+    public static EmployeeDTO removeEmployee(int ID) {
+        return EMPLOYEE_MAP.remove(ID);
     }
 }

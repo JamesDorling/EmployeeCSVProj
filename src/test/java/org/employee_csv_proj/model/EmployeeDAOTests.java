@@ -8,8 +8,6 @@ import java.time.LocalDate;
 
 public class EmployeeDAOTests {
     private EmployeeDTO mockEmployee1;
-    private EmployeeDTO mockEmployee2;
-    private EmployeeDTO mockEmployee3;
 
     @BeforeAll
     static void setupAll(TestInfo testInfo) {
@@ -34,6 +32,12 @@ public class EmployeeDAOTests {
         @Test
         @DisplayName("Add employees test")
         void addEmployeesTest() {
+            Assertions.assertEquals(EmployeeDAO.addEmployee(mockEmployee1), mockEmployee1);
+        }
+
+        @Test
+        @DisplayName("Check employee exists test")
+        void checkEmployeesTest() {
             EmployeeDAO.addEmployee(mockEmployee1);
             Assertions.assertTrue(EmployeeDAO.checkEmployeeExists(1));
         }
@@ -49,8 +53,6 @@ public class EmployeeDAOTests {
         @Test
         @DisplayName("Get employees failure test")
         void getEmployeeFailTest() {
-            EmployeeDAO.addEmployee(mockEmployee1);
-            Assumptions.assumeTrue(EmployeeDAO.checkEmployeeExists(1));
             Assertions.assertThrows(EmployeeNotFoundException.class, () -> EmployeeDAO.getEmployee(5));
         }
 
@@ -59,7 +61,7 @@ public class EmployeeDAOTests {
         void deleteEmployeeTest() {
             EmployeeDAO.addEmployee(mockEmployee1);
             Assumptions.assumeTrue(EmployeeDAO.checkEmployeeExists(1));
-            EmployeeDAO.removeEmployee(mockEmployee1.getID()); //ID should return 1 anyway
+            Assumptions.assumeTrue(EmployeeDAO.removeEmployee(mockEmployee1.getID()).equals(mockEmployee1)); //ID should return 1 anyway
             Assertions.assertThrows(EmployeeNotFoundException.class, () -> EmployeeDAO.getEmployee(1));
         }
     }
