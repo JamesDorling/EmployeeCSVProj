@@ -1,6 +1,8 @@
 package org.employee_csv_proj.controller.file_reader;
 
 import org.employee_csv_proj.config.Config;
+import org.employee_csv_proj.model.EmployeeDAO;
+import org.employee_csv_proj.model.EmployeeDTO;
 
 import java.io.*;
 import java.io.FileReader;
@@ -13,15 +15,10 @@ public class EmployeeCsvParser {
             bufferedReader.readLine();
             for (String employeeRecord = bufferedReader.readLine(); employeeRecord != null; employeeRecord = bufferedReader.readLine())
             {
-
+                EmployeeDAO.addEmployee(new EmployeeDTO(employeeRecord.split(",")));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        createEmployeeData();
-    }
-
 }

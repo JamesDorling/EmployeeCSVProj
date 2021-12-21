@@ -1,14 +1,12 @@
 package org.employee_csv_proj.view;
 
-import org.employee_csv_proj.view.PrintCentre;
 import java.util.Scanner;
 
 public class ReadCentre {
 
-    Scanner scan = new Scanner(System.in);
-    PrintCentre printCentre = new PrintCentre();
+    static Scanner scan = new Scanner(System.in);
 
-    public Integer chooseID(){
+    public static Integer chooseID(){
         Integer chosenID;
         Integer inputID;
         String userInput = scan.nextLine();
@@ -18,8 +16,8 @@ public class ReadCentre {
             inputID = Integer.parseInt(userInput);
         } catch (Exception e) {
 //            MyLogger.log(Level.WARNING,"The user input: " + userInput + " was unable to be parsed. Asking them again");
-            printCentre.pushToConsole(printCentre.invalidArrayLengthChoice());
-            inputID = this.chooseID();
+            PrintCentre.pushToConsole(PrintCentre.invalidArrayLengthChoice());
+            inputID = chooseID();
         }
 
         chosenID = checkID(inputID);
@@ -27,11 +25,11 @@ public class ReadCentre {
         return chosenID;
     }
 
-    private Integer checkID(Integer inputID) {
+    private static Integer checkID(Integer inputID) {
         if (0 <= inputID){
             return inputID;
         } else {
-            printCentre.pushToConsole(printCentre.invalidArrayLengthChoice());
+            PrintCentre.pushToConsole(PrintCentre.invalidArrayLengthChoice());
             return chooseID();
         }
     }

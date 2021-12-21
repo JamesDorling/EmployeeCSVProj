@@ -1,4 +1,4 @@
-package org.employee_csv_proj;
+package org.employee_csv_proj.model;
 
 import org.employee_csv_proj.model.EmployeeDTO;
 import org.junit.jupiter.api.*;

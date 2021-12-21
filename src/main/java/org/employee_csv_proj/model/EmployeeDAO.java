@@ -13,7 +13,8 @@ public class EmployeeDAO {
     private static final TreeMap<Integer, EmployeeDTO> EMPLOYEE_MAP = new TreeMap<>();
 
     public static EmployeeDTO addEmployee(EmployeeDTO employeeData) {
-        EMPLOYEE_MAP.put(employeeData.getID(), employeeData);
+        EMPLOYEE_MAP.put(employeeData.getEmpID(), employeeData);
+        System.out.println("employee added!");
         return employeeData;
     }
 

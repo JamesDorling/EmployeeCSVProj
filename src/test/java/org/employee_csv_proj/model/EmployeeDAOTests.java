@@ -20,7 +20,7 @@ public class EmployeeDAOTests {
     @BeforeEach
     void setup() {
         mockEmployee1 = Mockito.mock(EmployeeDTO.class);
-        Mockito.when(mockEmployee1.getID()).thenReturn(1);
+        Mockito.when(mockEmployee1.getEmpID()).thenReturn(1);
     }
 
     //Check employee exists is tested via testing the others. I could create another test for it, but it's a super simple
@@ -61,7 +61,7 @@ public class EmployeeDAOTests {
         void deleteEmployeeTest() {
             EmployeeDAO.addEmployee(mockEmployee1);
             Assumptions.assumeTrue(EmployeeDAO.checkEmployeeExists(1));
-            Assumptions.assumeTrue(EmployeeDAO.removeEmployee(mockEmployee1.getID()).equals(mockEmployee1)); //ID should return 1 anyway
+            Assumptions.assumeTrue(EmployeeDAO.removeEmployee(mockEmployee1.getEmpID()).equals(mockEmployee1)); //ID should return 1 anyway
             Assertions.assertThrows(EmployeeNotFoundException.class, () -> EmployeeDAO.getEmployee(1));
         }
     }
