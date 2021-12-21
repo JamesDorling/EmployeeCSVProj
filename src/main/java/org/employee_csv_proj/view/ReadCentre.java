@@ -1,7 +1,6 @@
 package org.employee_csv_proj.view;
 
 import org.employee_csv_proj.view.PrintCentre;
-
 import java.util.Scanner;
 
 public class ReadCentre {
