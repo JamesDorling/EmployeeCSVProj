@@ -108,4 +108,19 @@ public class EmployeeDTO {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        System.out.println("Employee details: \n");
+        return  "empID=" + empID +
+                ", title='" + title + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleInitial=" + middleInitial +
+                ", lastName='" + lastName + '\'' +
+                ", gender=" + gender +
+                ", email='" + email + '\'' +
+                ", dob=" + dob +
+                ", dateJoined=" + dateJoined +
+                ", salary=" + salary;
+    }
 }

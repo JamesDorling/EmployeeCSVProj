@@ -13,34 +13,11 @@ public class EmployeeTests {
 
     private EmployeeDTO singleEmployee;
 
-
     //initialise a temp employee array to test against
     @BeforeEach
     void setup() {
         String[] employeeDetails = new String[10];
-        int empID = 1331;
-        employeeDetails[0] = String.valueOf(empID);
-        String title = "Mrs.";
-        employeeDetails[1] = title;
-        String firstName = "Sin";
-        employeeDetails[2] = firstName;
-        char middleInitial = 'G';
-        employeeDetails[3] = String.valueOf(middleInitial);
-        String lastName = "Le";
-        employeeDetails[4] = lastName;
-        char gender = 'F';
-        employeeDetails[5] = String.valueOf(gender);
-        String email = "place@spartaglobal.com";
-        employeeDetails[6] = email;
-        LocalDate dob = LocalDate.parse("10/05/1998", DateTimeFormatter.ofPattern("M[M]/d[d]/yyyy"));
-        employeeDetails[7] = dob.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-        LocalDate dateJoined = LocalDate.parse("12/12/2014", DateTimeFormatter.ofPattern("M[M]/d[d]/yyyy"));
-        employeeDetails[8] = dateJoined.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-        int salary = 13000;
-        employeeDetails[9] = String.valueOf(salary);
-
-        singleEmployee = new EmployeeDTO(employeeDetails);
-
+        singleEmployee = new EmployeeDTO(new String[]{"1331", "Mrs.", "Sin", "G", "Le", "F", "place@spartaglobal.com", "10/05/1998", "12/12/2014", "13000"});
     }
 
     //test all different attributes return what is expected
@@ -112,6 +89,14 @@ public class EmployeeTests {
     void employeeSalaryConfirmTest() {
         singleEmployee.setSalary(25000);
         Assertions.assertEquals(25000, singleEmployee.getSalary());
+    }
+
+    @Test
+    @DisplayName("Single Employee creation test")
+    void singleEmployeeCreationTest() {
+        //"1331", "Mrs.", "Sin", "G", "Le", "F", "place@spartaglobal.com", "10/05/1998", "12/12/2014", "13000"
+        Assertions.assertEquals("empID=1331, title='Mrs.', firstName='Sin', middleInitial=G, lastName='Le', gender=F, email='place@spartaglobal.com'"+
+                ", dob=1998-10-05, dateJoined=2014-12-12, salary=13000", singleEmployee.toString()) ;
     }
 
     //After each - when to use?
