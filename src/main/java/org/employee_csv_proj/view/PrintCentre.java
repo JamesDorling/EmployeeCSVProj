@@ -3,16 +3,16 @@ package org.employee_csv_proj.view;
 import java.util.logging.Level;
 
 public class PrintCentre {
-    public void pushToConsole(String toPrint){
+    public static void pushToConsole(String toPrint){
 //        MyLogger.log(Level.FINEST,"Printing message to console window: " + toPrint);
         System.out.println(toPrint);
     }
 
-    public String inviteIDSearch(){
+    public static String inviteIDSearch(){
         return "You are now accessing the employee database. Please enter an ID number:";
     }
 //
-//    public String inviteGeneralSearch(){
+//    public static String inviteGeneralSearch(){
 //        return "You are now accessing the employee database. Which field(s) would you like to search? \n" +
 //                "1. ID\n" +
 //                "2. Title\n" +
@@ -26,14 +26,14 @@ public class PrintCentre {
 //                "10. Salary";
 //    }
 
-    public String returnSearch(org.employee_csv_proj.model.EmployeeDTO employee){
-        return "Employee number: " + employee.getID() + ": \n Name:" + employee.getTitle() + employee.getFirstName() +
+    public static String returnSearch(org.employee_csv_proj.model.EmployeeDTO employee){
+        return "Employee number: " + employee.getEmpID() + ": \n Name:" + employee.getTitle() + employee.getFirstName() +
                 employee.getMiddleInitial() + employee.getLastName() + " \n Gender:" + employee.getGender() + " \n Email:" +
                 employee.getEmail() + " \n DOB: " + employee.getDob() + "\n Date Joined: " + employee.getDateJoined() +
                 "\n Salary: " + employee.getSalary();
     }
 
-    public String invalidArrayLengthChoice() {
+    public static String invalidArrayLengthChoice() {
         return "Sorry, I didn't get that, please try again. Type a single non-negative number";
     }
 }
