@@ -1,17 +1,20 @@
 package org.employee_csv_proj.view;
 
+
+import org.employee_csv_proj.logging.MyLogger;
+
 import java.util.logging.Level;
 
 public class PrintCentre {
     public static void pushToConsole(String toPrint){
-//        MyLogger.log(Level.FINEST,"Printing message to console window: " + toPrint);
+        MyLogger.log(Level.INFO,"Printing message to console window: " + toPrint);
         System.out.println(toPrint);
     }
 
     public static String inviteIDSearch(){
         return "You are now accessing the employee database. Please enter an ID number:";
     }
-//
+
 //    public static String inviteGeneralSearch(){
 //        return "You are now accessing the employee database. Which field(s) would you like to search? \n" +
 //                "1. ID\n" +
@@ -33,7 +36,15 @@ public class PrintCentre {
                 "\n Salary: " + employee.getSalary();
     }
 
-    public static String invalidArrayLengthChoice() {
+    public static String invalidIDChoice() {
         return "Sorry, I didn't get that, please try again. Type a single non-negative number";
+    }
+
+    public static String employeeNotFound() {
+        return "Sorry, no employees fitting those specifications could be found. Would you like to try again? (Yes or No)";
+    }
+
+    public static String invalidYesNo() {
+        return "Sorry, I didn't get that, please try again. Type Y (yes) or N (no) ";
     }
 }
