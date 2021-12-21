@@ -1,4 +1,5 @@
 /.idea/
 /target/
+/src/main/java/org/employee_csv_proj/config/config.properties/
 *.log
 
