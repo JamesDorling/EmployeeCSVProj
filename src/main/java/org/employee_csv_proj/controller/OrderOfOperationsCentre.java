@@ -2,7 +2,7 @@ package org.employee_csv_proj.controller;
 
 import org.employee_csv_proj.controller.jdbc.DBInitialiser;
 import org.employee_csv_proj.logging.MyLogger;
-import org.employee_csv_proj.model.EmployeeDAO;
+import org.employee_csv_proj.model.EmployeeDAOTemp;
 import org.employee_csv_proj.model.exceptions.EmployeeNotFoundException;
 import org.employee_csv_proj.view.PrintCentre;
 import org.employee_csv_proj.view.ReadCentre;
@@ -37,7 +37,7 @@ public class OrderOfOperationsCentre {
             PrintCentre.pushToConsole(PrintCentre.inviteIDSearch());
             Integer employeeID = ReadCentre.chooseID();
             MyLogger.log(Level.INFO,"Employee #" + employeeID + " found.");
-            PrintCentre.pushToConsole(PrintCentre.returnSearch(EmployeeDAO.getEmployee(employeeID)));
+            PrintCentre.pushToConsole(PrintCentre.returnSearch(EmployeeDAOTemp.getEmployee(employeeID)));
         } catch (EmployeeNotFoundException e) {
             MyLogger.log(Level.INFO,"Employee not found.");
             PrintCentre.pushToConsole(PrintCentre.employeeNotFound());
