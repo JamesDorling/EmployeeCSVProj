@@ -2,4 +2,4 @@
 /target/
 /config.properties/
 *.log
-
+src/main/java/org/employee_csv_proj/config/config.properties

@@ -15,7 +15,9 @@ public interface PrintStrings {
 
     String INVALID_ID_CHOICE = "Sorry, I didn't get that, please try again. Type a single non-negative number";
 
-    String EMPLOYEE_NOT_FOUND = "Sorry, no employees fitting those specifications could be found. Would you like to try again? (Yes or No)";
+    String EMPLOYEE_NOT_FOUND = "Sorry, no employees fitting those specifications could be found.";
+
+    String INVITE_TRY_AGAIN =  "Would you like to try again? (Yes or No)";
 
     String INVALID_YES_NO = "Sorry, I didn't get that, please try again. Type Y (yes) or N (no) ";
 

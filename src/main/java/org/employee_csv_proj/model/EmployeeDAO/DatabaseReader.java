@@ -32,14 +32,4 @@ public class DatabaseReader {
         }
         return searchedEmployee;
     }
-
-    public static void main(String[] args) {
-        MyLogger.setup();
-        System.out.println(LocalDate.parse("2000-11-10", DateTimeFormatter.ofPattern("yyyy-M[M]-d[d]")).toString());
-        try {
-            findInDatabase(631859);
-        } catch (EmployeeNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }

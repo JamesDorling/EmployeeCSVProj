@@ -7,7 +7,6 @@ public class MyLogger {
     private static final Logger logger = Logger.getLogger("MyLogger");
 
     public static void setup() {
-        System.out.println("setting up");
         logger.setLevel(Level.ALL);
         logger.setUseParentHandlers(false);
         try {
@@ -32,7 +31,6 @@ public class MyLogger {
     }
 
     public static void log(Level logLevel, String toLog){
-        //System.out.println("logging");
         logger.log(logLevel, toLog);
     }
 }
