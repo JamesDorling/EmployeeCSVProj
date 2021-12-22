@@ -14,7 +14,7 @@ public class EmployeeDAO {
 
     public static EmployeeDTO addEmployee(EmployeeDTO employeeData) {
         EMPLOYEE_MAP.put(employeeData.getEmpID(), employeeData);
-        System.out.println("employee added!");
+        //System.out.println("employee added!");
         return employeeData;
     }
 
