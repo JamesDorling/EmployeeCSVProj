@@ -3,8 +3,7 @@ package org.employee_csv_proj.controller.file_reader;
 import org.employee_csv_proj.config.Config;
 import org.employee_csv_proj.controller.jdbc.DBConnectionManager;
 import org.employee_csv_proj.logging.MyLogger;
-import org.employee_csv_proj.model.DatabaseOperations;
-import org.employee_csv_proj.model.EmployeeDAO;
+import org.employee_csv_proj.model.EmployeeDAO.DatabaseOperations;
 import org.employee_csv_proj.model.EmployeeDTO;
 
 import java.io.*;

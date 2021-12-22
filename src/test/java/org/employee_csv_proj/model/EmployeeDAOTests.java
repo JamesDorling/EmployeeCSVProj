@@ -4,8 +4,6 @@ import org.employee_csv_proj.model.exceptions.EmployeeNotFoundException;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
 
-import java.time.LocalDate;
-
 public class EmployeeDAOTests {
     private EmployeeDTO mockEmployee1;
 
@@ -32,37 +30,37 @@ public class EmployeeDAOTests {
         @Test
         @DisplayName("Add employees test")
         void addEmployeesTest() {
-            Assertions.assertEquals(EmployeeDAO.addEmployee(mockEmployee1), mockEmployee1);
+            Assertions.assertEquals(EmployeeDAOTemp.addEmployee(mockEmployee1), mockEmployee1);
         }
 
         @Test
         @DisplayName("Check employee exists test")
         void checkEmployeesTest() {
-            EmployeeDAO.addEmployee(mockEmployee1);
-            Assertions.assertTrue(EmployeeDAO.checkEmployeeExists(1));
+            EmployeeDAOTemp.addEmployee(mockEmployee1);
+            Assertions.assertTrue(EmployeeDAOTemp.checkEmployeeExists(1));
         }
 
         @Test
         @DisplayName("Get employees test")
         void getEmployeeTest() {
-            EmployeeDAO.addEmployee(mockEmployee1);
-            Assumptions.assumeTrue(EmployeeDAO.checkEmployeeExists(1));
-            Assertions.assertDoesNotThrow(() -> EmployeeDAO.getEmployee(1));
+            EmployeeDAOTemp.addEmployee(mockEmployee1);
+            Assumptions.assumeTrue(EmployeeDAOTemp.checkEmployeeExists(1));
+            Assertions.assertDoesNotThrow(() -> EmployeeDAOTemp.getEmployee(1));
         }
 
         @Test
         @DisplayName("Get employees failure test")
         void getEmployeeFailTest() {
-            Assertions.assertThrows(EmployeeNotFoundException.class, () -> EmployeeDAO.getEmployee(5));
+            Assertions.assertThrows(EmployeeNotFoundException.class, () -> EmployeeDAOTemp.getEmployee(5));
         }
 
         @Test
         @DisplayName("Delete an employee test")
         void deleteEmployeeTest() {
-            EmployeeDAO.addEmployee(mockEmployee1);
-            Assumptions.assumeTrue(EmployeeDAO.checkEmployeeExists(1));
-            Assumptions.assumeTrue(EmployeeDAO.removeEmployee(mockEmployee1.getEmpID()).equals(mockEmployee1)); //ID should return 1 anyway
-            Assertions.assertThrows(EmployeeNotFoundException.class, () -> EmployeeDAO.getEmployee(1));
+            EmployeeDAOTemp.addEmployee(mockEmployee1);
+            Assumptions.assumeTrue(EmployeeDAOTemp.checkEmployeeExists(1));
+            Assumptions.assumeTrue(EmployeeDAOTemp.removeEmployee(mockEmployee1.getEmpID()).equals(mockEmployee1)); //ID should return 1 anyway
+            Assertions.assertThrows(EmployeeNotFoundException.class, () -> EmployeeDAOTemp.getEmployee(1));
         }
     }
 
