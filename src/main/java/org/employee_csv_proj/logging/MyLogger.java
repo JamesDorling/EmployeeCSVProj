@@ -12,24 +12,16 @@ public class MyLogger {
         logger.setUseParentHandlers(false);
         try {
             //One file handles the noteworthy logs
-            Handler simpleHandler = new FileHandler("src/main/java/org/employee_csv_proj/logging/mainLog.log", true);
+            Handler simpleHandler = new FileHandler("src/main/java/org/employee_csv_proj/logging/mainLog.log", false);
             simpleHandler.setLevel(Level.CONFIG);
             simpleHandler.setFormatter(new CustomFormatter());
             logger.addHandler(simpleHandler);
             //One file handles all logs
-            Handler detailedHandler = new FileHandler("src/main/java/org/employee_csv_proj/logging/detailedLog.log", true);
-            //src/main/java/org/employee_csv_proj/logging/detailedLog.log
+            Handler detailedHandler = new FileHandler("src/main/java/org/employee_csv_proj/logging/detailedLog.log", false);
             detailedHandler.setLevel(Level.FINEST);
             detailedHandler.setFormatter(new CustomFormatter());
             logger.addHandler(detailedHandler);
 
-            /*fileHandler = new FileHandler("./logfile.log");//file
-            SimpleFormatter simple = new SimpleFormatter();
-            fileHandler.setFormatter(simple);
-
-            LOGGER.addHandler(fileHandler);//adding Handler for file
-
-             */
         } catch (IOException e) {
             e.printStackTrace();
         }
