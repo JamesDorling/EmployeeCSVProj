@@ -1,7 +1,12 @@
 package org.employee_csv_proj.model;
 
+import org.employee_csv_proj.logging.MyLogger;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
 
 public class EmployeeDTO {
     //Emp ID,Name Prefix,First Name,Middle Initial,Last Name,Gender,E Mail,Date of Birth,Date of Joining,Salary
@@ -27,6 +32,26 @@ public class EmployeeDTO {
         this.setDob(employeeData[7]);
         this.setDateJoined(employeeData[8]);
         this.setSalary(Integer.parseInt(employeeData[9]));
+    }
+
+    public EmployeeDTO(ResultSet employeeData) {
+        try {
+            employeeData.next();
+            this.setEmpID(employeeData.getInt(1));
+            this.setTitle(employeeData.getString(2));
+            this.setFirstName(employeeData.getString(3));
+            this.setMiddleInitial(employeeData.getString(4).charAt(0));
+            this.setLastName(employeeData.getString(5));
+            this.setGender(employeeData.getString(6).charAt(0));
+            this.setEmail(employeeData.getString(7));
+
+            this.setDobFromDatabase(employeeData.getString(8));
+            this.setDateJoinedFromDatabase(employeeData.getString(9));
+
+            this.setSalary(employeeData.getInt(10));
+        } catch (SQLException e) {
+            MyLogger.log(Level.SEVERE, "Missing data on employee!");
+        }
     }
 
     public int getEmpID() {
@@ -93,12 +118,20 @@ public class EmployeeDTO {
         this.dob = LocalDate.parse(dob, DateTimeFormatter.ofPattern("M[M]/d[d]/yyyy"));
     }
 
+    public void setDobFromDatabase(String dob) {
+        this.dob = LocalDate.parse(dob, DateTimeFormatter.ofPattern("yyyy-M[M]-d[d]"));
+    }
+
     public LocalDate getDateJoined() {
         return dateJoined;
     }
 
     public void setDateJoined(String dateJoined) {
         this.dateJoined = LocalDate.parse(dateJoined, DateTimeFormatter.ofPattern("M[M]/d[d]/yyyy"));
+    }
+
+    public void setDateJoinedFromDatabase(String dateJoined) {
+        this.dateJoined = LocalDate.parse(dateJoined, DateTimeFormatter.ofPattern("yyyy-M[M]-d[d]"));
     }
 
     public int getSalary() {
@@ -111,7 +144,7 @@ public class EmployeeDTO {
 
     @Override
     public String toString() {
-        //System.out.println("Employee details: \n");
+        System.out.println("Employee details: \n");
         return  "empID=" + empID +
                 ", title='" + title + '\'' +
                 ", firstName='" + firstName + '\'' +
