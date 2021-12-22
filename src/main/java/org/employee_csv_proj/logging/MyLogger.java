@@ -40,7 +40,7 @@ public class MyLogger {
     }
 
     public static void log(Level logLevel, String toLog){
-        System.out.println("logging");
+        //System.out.println("logging");
         logger.log(logLevel, toLog);
     }
 }
