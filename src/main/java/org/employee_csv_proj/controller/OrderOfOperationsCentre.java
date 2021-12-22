@@ -1,17 +1,13 @@
 package org.employee_csv_proj.controller;
 
 import org.employee_csv_proj.controller.file_reader.EmployeeCsvParser;
-import org.employee_csv_proj.controller.jdbc.DBConnectionManager;
 import org.employee_csv_proj.controller.jdbc.DBInitialiser;
 import org.employee_csv_proj.logging.MyLogger;
-import org.employee_csv_proj.model.DatabaseWriter;
 import org.employee_csv_proj.model.EmployeeDAO;
-import org.employee_csv_proj.model.EmployeeDTO;
 import org.employee_csv_proj.model.exceptions.EmployeeNotFoundException;
 import org.employee_csv_proj.view.PrintCentre;
 import org.employee_csv_proj.view.ReadCentre;
 
-import javax.xml.crypto.Data;
 import java.util.logging.Level;
 
 public class OrderOfOperationsCentre {

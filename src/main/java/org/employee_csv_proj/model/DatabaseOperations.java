@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DatabaseWriter {
+public class DatabaseOperations {
     public static void addToDatabase(EmployeeDTO employee) {
         try {
             PreparedStatement addEmployeePreppedStatement = DBConnectionManager.dbCompanyConnection().prepareStatement(SQLStatements.ADD_EMPLOYEE);
