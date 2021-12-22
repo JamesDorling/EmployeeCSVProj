@@ -2,6 +2,7 @@ package org.employee_csv_proj.view;
 
 
 import org.employee_csv_proj.logging.MyLogger;
+import org.employee_csv_proj.model.EmployeeDTO;
 
 import java.util.logging.Level;
 
@@ -11,7 +12,7 @@ public class PrintCentre {
         System.out.println(toPrint);
     }
 
-    public static String returnSearch(org.employee_csv_proj.model.EmployeeDTO employee){
+    public static String returnSearch(EmployeeDTO employee){
         return String.format(PrintStrings.RETURN_SEARCH, employee.getEmpID(), employee.getTitle(), employee.getFirstName(), employee.getMiddleInitial(), employee.getLastName(), employee.getGender(), employee.getEmail(), employee.getDob(), employee.getDateJoined(), employee.getSalary());
     }
 
