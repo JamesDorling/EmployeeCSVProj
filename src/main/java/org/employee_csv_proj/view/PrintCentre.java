@@ -2,6 +2,7 @@ package org.employee_csv_proj.view;
 
 
 import org.employee_csv_proj.logging.MyLogger;
+import org.employee_csv_proj.model.EmployeeDTO;
 
 import java.util.logging.Level;
 
@@ -11,11 +12,11 @@ public class PrintCentre {
         System.out.println(toPrint);
     }
 
-    public static String inviteIDSearch(){
-        return "You are now accessing the employee database. Please enter an ID number:";
+    public static String returnSearch(EmployeeDTO employee){
+        return String.format(PrintStrings.RETURN_SEARCH, employee.getEmpID(), employee.getTitle(), employee.getFirstName(), employee.getMiddleInitial(), employee.getLastName(), employee.getGender(), employee.getEmail(), employee.getDob(), employee.getDateJoined(), employee.getSalary());
     }
 
-//    public static String inviteGeneralSearch(){
+    //    public static String inviteGeneralSearch(){
 //        return "You are now accessing the employee database. Which field(s) would you like to search? \n" +
 //                "1. ID\n" +
 //                "2. Title\n" +
@@ -29,22 +30,19 @@ public class PrintCentre {
 //                "10. Salary";
 //    }
 
-    public static String returnSearch(org.employee_csv_proj.model.EmployeeDTO employee){
-        return "Employee number: " + employee.getEmpID() + ": \n Name:" + employee.getTitle() + employee.getFirstName() +
-                employee.getMiddleInitial() + employee.getLastName() + " \n Gender:" + employee.getGender() + " \n Email:" +
-                employee.getEmail() + " \n DOB: " + employee.getDob() + "\n Date Joined: " + employee.getDateJoined() +
-                "\n Salary: " + employee.getSalary();
+    public static String inviteIDSearch(){
+        return PrintStrings.INVITE_ID_SEARCH;
     }
 
     public static String invalidIDChoice() {
-        return "Sorry, I didn't get that, please try again. Type a single non-negative number";
+        return PrintStrings.INVALID_ID_CHOICE;
     }
 
     public static String employeeNotFound() {
-        return "Sorry, no employees fitting those specifications could be found. Would you like to try again? (Yes or No)";
+        return PrintStrings.EMPLOYEE_NOT_FOUND;
     }
 
     public static String invalidYesNo() {
-        return "Sorry, I didn't get that, please try again. Type Y (yes) or N (no) ";
+        return PrintStrings.INVALID_YES_NO;
     }
 }
