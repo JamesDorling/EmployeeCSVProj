@@ -1,8 +1,11 @@
 package org.employee_csv_proj.controller;
 
 import org.employee_csv_proj.controller.jdbc.DBInitialiser;
+import org.employee_csv_proj.controller.jdbc.sql_queries.SQLStatements;
 import org.employee_csv_proj.logging.MyLogger;
+import org.employee_csv_proj.model.EmployeeDAO.DatabaseReader;
 import org.employee_csv_proj.model.EmployeeDAOTemp;
+import org.employee_csv_proj.model.EmployeeDTO;
 import org.employee_csv_proj.model.exceptions.EmployeeNotFoundException;
 import org.employee_csv_proj.view.PrintCentre;
 import org.employee_csv_proj.view.ReadCentre;
@@ -18,15 +21,9 @@ public class OrderOfOperationsCentre {
     }
 
     public static void runtimeOrder() {
-
+        MyLogger.log(Level.INFO, "Initialising Database");
         DBInitialiser.initialiseDB();
-        MyLogger.log(Level.INFO, "Initialised Database");
-
-        //DatabaseWriter.addToDatabase(DBConnectionManager.dbCompanyConnection(), new EmployeeDTO());
-        //DatabaseWriter.deleteFromDatabase(DBConnectionManager.dbCompanyConnection(), 1);
-
-        //EmployeeCsvParser.createEmployeeData();
-        MyLogger.log(Level.INFO,"Employee CSV has been parsed, allowing user to query database.");
+        MyLogger.log(Level.INFO,"Allowing user to query database.");
         searchInput();
         MyLogger.log(Level.INFO,"Program has finished.");
 
@@ -36,12 +33,15 @@ public class OrderOfOperationsCentre {
         try {
             PrintCentre.pushToConsole(PrintCentre.inviteIDSearch());
             Integer employeeID = ReadCentre.chooseID();
-            MyLogger.log(Level.INFO,"Employee #" + employeeID + " found.");
-            PrintCentre.pushToConsole(PrintCentre.returnSearch(EmployeeDAOTemp.getEmployee(employeeID)));
+            EmployeeDTO foundEmployee = DatabaseReader.findInDatabase(employeeID, SQLStatements.FIND_EMPLOYEE_BY_ID);
+            PrintCentre.pushToConsole(PrintCentre.returnSearch(foundEmployee));
+            PrintCentre.pushToConsole(PrintCentre.inviteTryAgain());
+            if (ReadCentre.chooseBool()){searchInput();}
         } catch (EmployeeNotFoundException e) {
             MyLogger.log(Level.INFO,"Employee not found.");
             PrintCentre.pushToConsole(PrintCentre.employeeNotFound());
-            searchInput();
+            PrintCentre.pushToConsole(PrintCentre.inviteTryAgain());
+            if (ReadCentre.chooseBool()){searchInput();}
         }
     }
 }

@@ -42,6 +42,10 @@ public class PrintCentre {
         return PrintStrings.EMPLOYEE_NOT_FOUND;
     }
 
+    public static String inviteTryAgain() {
+        return PrintStrings.INVITE_TRY_AGAIN;
+    }
+
     public static String invalidYesNo() {
         return PrintStrings.INVALID_YES_NO;
     }

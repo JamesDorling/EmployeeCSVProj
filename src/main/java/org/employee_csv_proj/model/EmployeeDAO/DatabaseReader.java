@@ -42,13 +42,4 @@ public class DatabaseReader {
         }
         return searchedEmployee;
     }
-
-    public static void main(String[] args) {
-        MyLogger.setup();
-        try {
-            findInDatabase(631859, SQLStatements.FIND_EMPLOYEE_BY_ID);
-        } catch (EmployeeNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }
