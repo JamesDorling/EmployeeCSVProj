@@ -1,13 +1,14 @@
-package org.employee_csv_proj.view;
+package java.org.employee_csv_proj.view;
 
 import org.employee_csv_proj.model.EmployeeDTO;
+import org.employee_csv_proj.view.PrintCentre;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class PrintCentreTests {
 
-    EmployeeDTO testEmployeeDTO = new EmployeeDTO(new String[]{"1", "a", "a", "a", "a", "a", "a", "01/01/2001", "01/01/2001", "1"});
+    EmployeeDTO testEmployeeDTO = new EmployeeDTO(new String[]{"1", "a", "a", "a", "a", "a", "a", "01/11/2021", "01/11/2021", "1"});
 
     @Test
     @DisplayName("Does inviteIDSearch return a String?")
@@ -31,10 +32,14 @@ public class PrintCentreTests {
     @Test
     @DisplayName("Does returnSearch return the expected String?")
     void doesReturnSearchReturnTheExpectedString() {
-        String expectedString = "Employee number: " + "1" + ": \n Name:" + "a" + "a" +
-                "a" + "a" + " \n Gender:" + "a" + " \n Email:" +
-                "a" + " \n DOB: " + "2001-01-01" + "\n Date Joined: " + "2001-01-01" +
-                "\n Salary: " + "1";
+        String expectedString = """
+                Employee number: 1
+                Name: a a a a
+                Gender: a
+                Email: a
+                Date of birth: 01/11/21
+                Date joined: 01/11/21
+                Salary: 1""";
         Assertions.assertEquals(expectedString, PrintCentre.returnSearch(testEmployeeDTO));
     }
 
@@ -60,7 +65,7 @@ public class PrintCentreTests {
     @Test
     @DisplayName("Does employeeNotFound return the expected String?")
     void doesEmployeeNotFoundReturnTheExpectedString() {
-        String expectedString = "Sorry, no employees fitting those specifications could be found. Would you like to try again?";
+        String expectedString = "Sorry, no employees fitting those specifications could be found. Would you like to try again? (Yes or No)";
         Assertions.assertEquals(expectedString, PrintCentre.employeeNotFound());
     }
 
