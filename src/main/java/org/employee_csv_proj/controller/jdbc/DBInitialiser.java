@@ -18,7 +18,7 @@ public class DBInitialiser {
 
     private static void initialiseEmployeesTable() {
         try {
-           Connection connection = DBConnectionManager.dbCompanyXConnection();
+           Connection connection = DBConnectionManager.dbCompanyConnection();
             connection.createStatement().executeUpdate(DbInitialiseStatements.DB_CREATE_EMPLOYEES_TABLE);
             DBConnectionManager.closeConnection(connection);
         } catch (SQLException e) {

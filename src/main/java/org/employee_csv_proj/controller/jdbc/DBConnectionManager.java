@@ -23,7 +23,7 @@ public class DBConnectionManager {
     }
 
 
-    public static Connection dbCompanyXConnection() {
+    public static Connection dbCompanyConnection() {
         Connection connection = null;
 
         try {
