@@ -1,6 +1,7 @@
 package org.employee_csv_proj.controller;
 
 import org.employee_csv_proj.controller.file_reader.EmployeeCsvParser;
+import org.employee_csv_proj.controller.jdbc.DBInitialiser;
 import org.employee_csv_proj.logging.MyLogger;
 import org.employee_csv_proj.model.EmployeeDAO;
 import org.employee_csv_proj.model.exceptions.EmployeeNotFoundException;
@@ -18,6 +19,12 @@ public class OrderOfOperationsCentre {
     }
 
     public static void runtimeOrder() {
+
+        DBInitialiser.initialiseDB();
+        MyLogger.log(Level.INFO, "Initialised Database");
+
+        //DatabaseWriter.addToDatabase(DBConnectionManager.dbCompanyConnection(), new EmployeeDTO());
+        //DatabaseWriter.deleteFromDatabase(DBConnectionManager.dbCompanyConnection(), 1);
 
         EmployeeCsvParser.createEmployeeData();
         MyLogger.log(Level.INFO,"Employee CSV has been parsed, allowing user to query database.");

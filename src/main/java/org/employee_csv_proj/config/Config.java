@@ -24,7 +24,7 @@ public class Config {
     }
 
     public static String dbDatabaseConnectionURL() {
-        return config.getProperty("db_connection_url");
+        return config.getProperty("db_connection");
     }
 
     public static String dbUsername() {
