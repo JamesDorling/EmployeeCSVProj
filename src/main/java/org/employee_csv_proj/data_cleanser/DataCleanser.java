@@ -26,6 +26,7 @@ public class DataCleanser{
         ArrayList<String[]> IDs = new ArrayList<>();
         ArrayList<String[]> duplicatesToRemove = new ArrayList<>();
         Iterator<String[]> iterator = providedList.iterator();
+        boolean result = true;
         boolean isDupe = false;
         while(iterator.hasNext()){
             String[] currentEmployee = iterator.next();
@@ -36,6 +37,7 @@ public class DataCleanser{
             else {
                 duplicatesToRemove.add(currentEmployee);
                 iterator.remove();
+                result = false;
             }
         }
 
@@ -44,7 +46,7 @@ public class DataCleanser{
         while(iterator.hasNext()) {
             deleteOriginalDuplicates(duplicatesToRemove, iterator);
         }
-        return !isDupe;
+        return result;
     }
 
     private boolean removeDuplicates(ArrayList<String[]> IDs, String[] currentEmployee) {
@@ -135,26 +137,5 @@ public class DataCleanser{
         }
 
         return result;
-    }
-
-    public static void main(String[] args) {
-        MyLogger.setup();
-        DataCleanser cleanser = new DataCleanser("src/main/resources/EmployeeRecords.csv");
-        System.out.println(cleanser.getProvidedList().size());
-        System.out.println(cleanser.allFieldsFull());
-        System.out.println(cleanser.getProvidedList().size());
-        System.out.println(cleanser.checkNameSurnameDOB());
-        System.out.println(cleanser.getProvidedList().size());
-        System.out.println(cleanser.checkUniqueIDs());
-        System.out.println(cleanser.getProvidedList().size());
-
-        //Second wave to check
-        System.out.println(cleanser.allFieldsFull());
-        System.out.println(cleanser.getProvidedList().size());
-        System.out.println(cleanser.checkNameSurnameDOB());
-        System.out.println(cleanser.getProvidedList().size());
-        System.out.println(cleanser.checkUniqueIDs());
-        System.out.println(cleanser.getProvidedList().size());
-
     }
 }
