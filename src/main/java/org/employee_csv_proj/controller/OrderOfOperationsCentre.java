@@ -1,10 +1,8 @@
 package org.employee_csv_proj.controller;
 
 import org.employee_csv_proj.controller.jdbc.DBInitialiser;
-import org.employee_csv_proj.controller.jdbc.sql_queries.SQLStatements;
 import org.employee_csv_proj.logging.MyLogger;
 import org.employee_csv_proj.model.EmployeeDAO.DatabaseReader;
-import org.employee_csv_proj.model.EmployeeDAOTemp;
 import org.employee_csv_proj.model.EmployeeDTO;
 import org.employee_csv_proj.model.exceptions.EmployeeNotFoundException;
 import org.employee_csv_proj.view.PrintCentre;
@@ -33,7 +31,7 @@ public class OrderOfOperationsCentre {
         try {
             PrintCentre.pushToConsole(PrintCentre.inviteIDSearch());
             Integer employeeID = ReadCentre.chooseID();
-            EmployeeDTO foundEmployee = DatabaseReader.findInDatabase(employeeID, SQLStatements.FIND_EMPLOYEE_BY_ID);
+            EmployeeDTO foundEmployee = DatabaseReader.findInDatabase(employeeID);
             PrintCentre.pushToConsole(PrintCentre.returnSearch(foundEmployee));
             PrintCentre.pushToConsole(PrintCentre.inviteTryAgain());
             if (ReadCentre.chooseBool()){searchInput();}
