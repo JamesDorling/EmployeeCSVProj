@@ -22,12 +22,14 @@ public class DatabaseReader {
             findEmployeePreppedStatement.setInt(1, employeeID);
             ResultSet resultSet = findEmployeePreppedStatement.executeQuery();
 
+
             searchedEmployee = new EmployeeDTO(resultSet);
             MyLogger.log(Level.FINE, searchedEmployee.toString());
             DBConnectionManager.closeConnection(findEmployeePreppedStatement.getConnection());
+
+            return searchedEmployee;
         } catch (SQLException e) {
             throw new EmployeeNotFoundException("That employee does not exist or could not be found.");
         }
-        return searchedEmployee;
     }
 }

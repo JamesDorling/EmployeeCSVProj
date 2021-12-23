@@ -7,6 +7,4 @@ public interface SQLStatements {
     String DELETE_EMPLOYEE = "DELETE FROM employees WHERE employeeID = ?";
 
     String FIND_EMPLOYEE_BY_ID = "SELECT * FROM employees WHERE `employeeID` = ?";
-
-    String EMPLOYEE_ID = "employeeID";
 }
