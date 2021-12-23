@@ -12,9 +12,17 @@ public class PrintCentre {
         System.out.println(toPrint);
     }
 
-    public static String returnSearch(EmployeeDTO employee){
-        return String.format(PrintStrings.RETURN_SEARCH, employee.getEmpID(), employee.getTitle(), employee.getFirstName(), employee.getMiddleInitial(), employee.getLastName(), employee.getGender(), employee.getEmail(), employee.getDob(), employee.getDateJoined(), employee.getSalary());
+    public static String databaseAlreadyExists(){
+        return PrintStrings.DATABASE_ALREADY_EXISTS;
     }
+
+    public static String invalidIntChoice(){
+        return PrintStrings.INVALID_INT_CHOICE;
+    }
+
+//    public static String returnSearch(EmployeeDTO employee){
+//        return String.format(PrintStrings.RETURN_SEARCH, employee.getEmpID(), employee.getTitle(), employee.getFirstName(), employee.getMiddleInitial(), employee.getLastName(), employee.getGender(), employee.getEmail(), employee.getDob(), employee.getDateJoined(), employee.getSalary());
+//    }
 
     //    public static String inviteGeneralSearch(){
 //        return "You are now accessing the employee database. Which field(s) would you like to search? \n" +
@@ -29,24 +37,24 @@ public class PrintCentre {
 //                "9. Date Joined\n" +
 //                "10. Salary";
 //    }
-
-    public static String inviteIDSearch(){
-        return PrintStrings.INVITE_ID_SEARCH;
-    }
-
-    public static String invalidIDChoice() {
-        return PrintStrings.INVALID_ID_CHOICE;
-    }
-
-    public static String employeeNotFound() {
-        return PrintStrings.EMPLOYEE_NOT_FOUND;
-    }
-
-    public static String inviteTryAgain() {
-        return PrintStrings.INVITE_TRY_AGAIN;
-    }
-
-    public static String invalidYesNo() {
-        return PrintStrings.INVALID_YES_NO;
-    }
+//
+//    public static String inviteIDSearch(){
+//        return PrintStrings.INVITE_ID_SEARCH;
+//    }
+//
+//    public static String invalidIDChoice() {
+//        return PrintStrings.INVALID_ID_CHOICE;
+//    }
+//
+//    public static String employeeNotFound() {
+//        return PrintStrings.EMPLOYEE_NOT_FOUND;
+//    }
+//
+//    public static String inviteTryAgain() {
+//        return PrintStrings.INVITE_TRY_AGAIN;
+//    }
+//
+//    public static String invalidYesNo() {
+//        return PrintStrings.INVALID_YES_NO;
+//    }
 }
