@@ -6,7 +6,7 @@ import org.employee_csv_proj.controller.OrderOfOperationsCentre;
  * Hello world!
  *
  */
-public class App 
+public class AppDefaults
 {
     public static void main( String[] args )
     {

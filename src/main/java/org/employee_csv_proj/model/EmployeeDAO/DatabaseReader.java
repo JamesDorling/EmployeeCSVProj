@@ -25,8 +25,6 @@ public class DatabaseReader {
             searchedEmployee = new EmployeeDTO(resultSet);
             MyLogger.log(Level.FINE, searchedEmployee.toString());
             DBConnectionManager.closeConnection(findEmployeePreppedStatement.getConnection());
-
-
         } catch (SQLException e) {
             throw new EmployeeNotFoundException("That employee does not exist or could not be found.");
         }
