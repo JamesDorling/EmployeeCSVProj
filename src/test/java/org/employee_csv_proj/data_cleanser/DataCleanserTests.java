@@ -25,14 +25,24 @@ public class DataCleanserTests {
         @DisplayName("Check duplicate IDs test")
         void dupeIDTest() {
             Assumptions.assumeTrue(cleanser.getProvidedList() != null);
-            Assertions.assertFalse(cleanser.allFieldsFull());
+            System.out.println(cleanser.getProvidedList().size());
+            //Assertions.assertFalse(cleanser.checkUniqueIDs());
+            cleanser.checkUniqueIDs();
+            System.out.println(cleanser.getProvidedList().size());
         }
 
         @Test
         @DisplayName("All Fields Full Test")
         void allFieldsFullTest() {
             Assumptions.assumeTrue(cleanser.getProvidedList() != null);
-            Assertions.assertFalse(cleanser.checkUniqueIDs());
+            Assertions.assertFalse(cleanser.allFieldsFull());
+        }
+
+        @Test
+        @DisplayName("Duplicate Name and DOB Test")
+        void dupeNameAndDobTest() {
+            Assumptions.assumeTrue(cleanser.getProvidedList() != null);
+            Assertions.assertFalse(cleanser.checkNameSurnameDOB());
         }
 
     }
@@ -59,6 +69,12 @@ public class DataCleanserTests {
             Assertions.assertTrue(cleanser.checkUniqueIDs());
         }
 
+        @Test
+        @DisplayName("Duplicate Name and DOB Test")
+        void dupeNameAndDobTest() {
+            Assumptions.assumeTrue(cleanser.getProvidedList() != null);
+            Assertions.assertTrue(cleanser.checkNameSurnameDOB());
+        }
     }
 
 }
