@@ -23,13 +23,6 @@ public class DataCleanser{
     }
 
     public boolean checkUniqueIDs() {
-        boolean result = true;
-
-        goThroughProvidedListForIDs();
-        return result;
-    }
-
-    private boolean goThroughProvidedListForIDs() {
         ArrayList<String[]> IDs = new ArrayList<>();
         ArrayList<String[]> duplicatesToRemove = new ArrayList<>();
         Iterator<String[]> iterator = providedList.iterator();
@@ -51,7 +44,7 @@ public class DataCleanser{
         while(iterator.hasNext()) {
             deleteOriginalDuplicates(duplicatesToRemove, iterator);
         }
-        return isDupe;
+        return !isDupe;
     }
 
     private boolean removeDuplicates(ArrayList<String[]> IDs, String[] currentEmployee) {
