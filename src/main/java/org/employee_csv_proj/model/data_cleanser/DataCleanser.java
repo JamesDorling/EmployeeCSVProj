@@ -1,4 +1,4 @@
-package org.employee_csv_proj.data_cleanser;
+package org.employee_csv_proj.model.data_cleanser;
 
 import org.employee_csv_proj.controller.file_reader.EmployeeCsvParser;
 import org.employee_csv_proj.logging.MyLogger;

@@ -1,4 +1,4 @@
-package org.employee_csv_proj.model.EmployeeDAO;
+package org.employee_csv_proj.model.employee_dao;
 
 import org.employee_csv_proj.controller.jdbc.DBConnectionManager;
 import org.employee_csv_proj.controller.jdbc.sql_queries.SQLStatements;

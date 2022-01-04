@@ -1,4 +1,4 @@
-package org.employee_csv_proj.model.EmployeeDAO;
+package org.employee_csv_proj.model.employee_dao;
 
 import org.employee_csv_proj.controller.jdbc.DBConnectionManager;
 import org.employee_csv_proj.controller.jdbc.sql_queries.SQLStatements;
@@ -9,8 +9,6 @@ import org.employee_csv_proj.model.exceptions.EmployeeNotFoundException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 
 public class DatabaseReader {

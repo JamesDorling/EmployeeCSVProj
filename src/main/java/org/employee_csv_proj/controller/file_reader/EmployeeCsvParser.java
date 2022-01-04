@@ -1,10 +1,9 @@
 package org.employee_csv_proj.controller.file_reader;
 
-import org.employee_csv_proj.config.Config;
 import org.employee_csv_proj.controller.jdbc.DBConnectionManager;
-import org.employee_csv_proj.data_cleanser.DataCleanser;
+import org.employee_csv_proj.model.data_cleanser.DataCleanser;
 import org.employee_csv_proj.logging.MyLogger;
-import org.employee_csv_proj.model.EmployeeDAO.DatabaseOperations;
+import org.employee_csv_proj.model.employee_dao.DatabaseOperations;
 import org.employee_csv_proj.model.EmployeeDTO;
 
 import java.io.*;
