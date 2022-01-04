@@ -6,7 +6,6 @@ import org.employee_csv_proj.controller.jdbc.sql_queries.DbInitialiseStatements;
 import org.employee_csv_proj.data_cleanser.DataCleanser;
 import org.employee_csv_proj.logging.MyLogger;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
